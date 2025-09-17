@@ -133,7 +133,7 @@ button:hover {
 	background-color: @bg;
 	padding: 0px 0px 3px 0px;
 	margin: 0px 10px;
-	font-family: MononokiNerdFont;
+	font-family: BlexMonoNerdFont;
 	font-weight: bold;
 	font-size: 22px;
 }

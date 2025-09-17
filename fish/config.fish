@@ -1,3 +1,4 @@
+# Add global env
 # set -Ux GOOGLE_CLOUD_PROJECT "_"
 
 if status is-interactive
@@ -35,6 +36,9 @@ thefuck --alias | source
 starship init fish | source
 
 atuin init fish | source
+
+# Custom binding for atuin up-arrow in ghostty
+bind up _atuin_bind_up
 
 end
 

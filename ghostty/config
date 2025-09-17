@@ -1,4 +1,4 @@
-font-family = MononokiNerdFont
+font-family = BlexMonoNerdFont
 font-size = 17
 theme = catppuccin-macchiato
 confirm-close-surface=false
