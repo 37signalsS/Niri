@@ -71,7 +71,7 @@ input {
 // Remember to uncomment the node by removing "/-"!
 
 output "eDP-1" {
-    mode "1920x1080"
+    mode "2560x1600@60"
     position x=0 y=0
 }
 
@@ -226,13 +226,11 @@ spawn-at-startup "gammastep" "-PO" "4000"
 spawn-at-startup "vscodium"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
 spawn-at-startup "swaync" "-c" "/home/q/.config/swaync/config.jsonc"
-spawn-at-startup "Telegram"
 spawn-at-startup "/usr/bin/kdeconnectd"
-
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "bash" "-c" r#"swaybg -m fill -i "$(find ~/Wallpaper -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | shuf -n 1)""#
-spawn-at-startup "sudo" "systemctl" "start" "powertop.service"
-spawn-at-startup "ghostty" "-e" "sudo" "powertop"
-
+spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors"
 
 // Set cursor theme
 cursor {
