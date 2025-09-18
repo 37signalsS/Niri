@@ -1,7 +1,8 @@
-font-family = BlexMonoNerdFont
+font-family = MononokiNerdFont
 font-size = 17
 theme = catppuccin-macchiato
 confirm-close-surface=false
+command = TERM=xterm-256color /usr/bin/fish
 
 keybind = alt+up=new_split:up
 keybind = alt+down=new_split:down
