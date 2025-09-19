@@ -127,11 +127,12 @@ spawn-at-startup "pomatez"
 spawn-at-startup "vscodium"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
 spawn-at-startup "swaync" "-c" "/home/q/.config/swaync/config.jsonc"
+spawn-at-startup "Telegram"
 spawn-at-startup "/usr/bin/kdeconnectd"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "bash" "-c" r#"swaybg -m fill -i "$(find ~/Wallpaper -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | shuf -n 1)""#
-spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors"
+spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "timeout" "1200" "systemctl suspend" "resume" "niri msg action power-on-monitors"
 
 cursor {
     xcursor-theme "default"
