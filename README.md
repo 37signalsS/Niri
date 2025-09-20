@@ -71,52 +71,6 @@ To remove specific applications from appearing in Rofi, delete their `.desktop` 
 - `~/.local/share/applications`
 - `/usr/share/applications`
 
-### Default applications
-1. View system MIME types:
-
-   ```
-   cat /etc/mime.types
-   ```
-2. Create custom MIME type:
-
-   ```
-   mkdir -p ~/.local/share/mime/packages
-   nano ~/.local/share/mime/packages/markdown.xml
-   ```
-   ```
-   <?xml version="1.0" encoding="UTF-8"?>
-   <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-       <mime-type type="text/markdown">
-           <comment>Markdown Document</comment>
-           <glob pattern="*.md"/>
-           <glob pattern="*.markdown"/>
-       </mime-type>
-   </mime-info>
-   ```
-   ```
-   update-mime-database ~/.local/share/mime
-   ```
-3. Set default application:
-   ```
-   xdg-mime default dev.zed.Zed.desktop text/plain
-   ```
-4. Verify default application:
-   ```
-   xdg-mime query default text/plain
-   ```
-5. Reset MIME cache:
-   ```
-   rm -rf ~/.cache/mimeapps.list
-   rm -rf ~/.local/share/mime
-   update-mime-database ~/.local/share/mime
-   ```
-
-### Discord update skipping
-Add to `~/.config/discord/settings.json`:
-```
-{"SKIP_HOST_UPDATE": true}
-```
-
 ## Power saving (ThinkPad specific)
 ```
 sudo pacman -S tlp tlp-rdw powertop tp_smapi acpi_call
@@ -140,6 +94,8 @@ Description=Powertop tunings
 Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/powertop --auto-tune
+# Comment if uninterrupted operation of USB devices is required.
+# ExecStartPost=/bin/sh -c "for i in /sys/bus/usb/devices/*/power/control; do echo on > $i; done"
 
 [Install]
 WantedBy=multi-user.target
