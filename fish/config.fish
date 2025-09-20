@@ -13,11 +13,7 @@ alias cd='z'
 
 alias lg='lazygit'
 
-alias ze='zeditor'
-
 alias rm='trash'
-
-alias code='/bin/vscodium'
 
 alias vpnon='sudo systemctl start tailscaled && sleep 3 && sudo tailscale up'
 
@@ -28,6 +24,8 @@ alias l='eza --tree --icons=always --long --git -a'
 alias s='niri -c /home/q/notebook1/niri/config.kdl'
 
 alias d="sudo -v; cd (sudo find / -type d 2>/dev/null | fzf --preview 'tree -C {}' --preview-window=right:50%)"
+
+alias codium='/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland $argv'
 
 zoxide init fish | source
 
@@ -46,3 +44,5 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 set PATH $PATH /home/q/.local/bin
+set PATH $PATH /home/q/.cargo/bin
+
