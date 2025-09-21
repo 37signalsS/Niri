@@ -23,7 +23,7 @@ alias l='eza --tree --icons=always --long --git -a'
 
 alias s='sudo systemctl start powertop-nousb.service && niri -c /home/q/notebook1/niri/config.kdl'
 
-alias niri-session='sudo systemctl start powertop-usb.service && niri-session'
+alias niri-sessions='sudo systemctl start powertop-usb.service && niri-session'
 
 alias d="sudo -v; cd (sudo find / -type d 2>/dev/null | fzf --preview 'tree -C {}' --preview-window=right:50%)"
 
