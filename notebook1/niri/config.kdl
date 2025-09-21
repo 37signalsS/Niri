@@ -116,7 +116,7 @@ spawn-at-startup "waybar" "-c" "/home/q/notebook1/waybar/config.jsonc"
 spawn-at-startup "firefox"
 spawn-at-startup "nm-applet"
 spawn-at-startup "gammastep" "-PO" "4000"
-spawn-at-startup "vscodium"
+spawn-at-startup "/usr/bin/codium" "--enable-features=UseOzonePlatform,WaylandWindowDecorations" "--ozone-platform=wayland"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
 spawn-at-startup "swaync" "-c" "/home/q/.config/swaync/config.jsonc"
 spawn-at-startup "/usr/bin/kdeconnectd"
@@ -168,8 +168,6 @@ gestures {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -179,10 +177,10 @@ window-rule {
     default-column-width { fixed 600; }
     default-window-height { fixed 400; }
 }
-window-rule {
-    match app-id="blueman"
-    open-on-workspace "9"
-}
+//window-rule {
+//    match app-id="blueman"
+//    open-on-workspace "9"
+//}
 window-rule {
     match app-id="firefox"
     open-on-workspace "1"
@@ -197,8 +195,7 @@ window-rule {
 //    open-on-workspace "8"
 //}
 window-rule {
-    // Matched via class="VSCodium" in sway
-    match app-id="VSCodium"
+    match app-id="codium"
     open-on-workspace "2"
     default-column-width { proportion 1.0; }
 }

@@ -1,6 +1,6 @@
-font-family = MononokiNerdFont
+font-family = BlexMonoNerdFont
 font-size = 17
-theme = catppuccin-macchiato
+theme = Catppuccin Macchiato
 confirm-close-surface=false
 command = TERM=xterm-256color /usr/bin/fish
 

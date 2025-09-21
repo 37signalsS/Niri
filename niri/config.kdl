@@ -124,7 +124,7 @@ spawn-at-startup "keepassxc"
 spawn-at-startup "nm-applet"
 spawn-at-startup "gammastep" "-PO" "4000"
 spawn-at-startup "pomatez"
-spawn-at-startup "vscodium"
+spawn-at-startup "/usr/bin/codium" "--enable-features=UseOzonePlatform,WaylandWindowDecorations" "--ozone-platform=wayland"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
 spawn-at-startup "swaync" "-c" "/home/q/.config/swaync/config.jsonc"
 spawn-at-startup "Telegram"
@@ -177,8 +177,6 @@ gestures {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -202,12 +200,11 @@ window-rule {
     open-on-workspace "8"
 }
 window-rule {
-    match app-id="org.keepassxc.KeePassXC"
+    match app-id="KeePassXC"
     open-on-workspace "8"
 }
 window-rule {
-    // Matched via class="VSCodium" in sway
-    match app-id="VSCodium"
+    match app-id="codium"
     open-on-workspace "7"
     default-column-width { proportion 1.0; }
 }
