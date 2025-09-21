@@ -21,7 +21,9 @@ alias vpnoff='sudo systemctl stop tailscaled && sleep 3 && sudo tailscale down'
 
 alias l='eza --tree --icons=always --long --git -a'
 
-alias s='niri -c /home/q/notebook1/niri/config.kdl'
+alias s='sudo systemctl start powertop-nousb.service && niri -c /home/q/notebook1/niri/config.kdl'
+
+alias niri-session='sudo systemctl start powertop-usb.service && niri-session'
 
 alias d="sudo -v; cd (sudo find / -type d 2>/dev/null | fzf --preview 'tree -C {}' --preview-window=right:50%)"
 
@@ -45,4 +47,3 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 set PATH $PATH /home/q/.local/bin
 set PATH $PATH /home/q/.cargo/bin
-
