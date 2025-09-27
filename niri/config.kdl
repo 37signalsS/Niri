@@ -57,16 +57,16 @@ input {
 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 
+output "eDP-1" {
+    mode "2560x1600@120"
+    position x=320 y=1440
+}
+
 output "HDMI-A-1" {
     mode "2560x1440"
     position x=0 y=0
     focus-at-startup
 }
-
-//output "eDP-1" {
-//    mode "2560x1600@60"
-//    position x=320 y=1440
-//}
 
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
@@ -111,10 +111,10 @@ workspace "3" { open-on-output "HDMI-A-1"; }
 workspace "4" { open-on-output "HDMI-A-1"; }
 workspace "5" { open-on-output "HDMI-A-1"; }
 workspace "6" { open-on-output "HDMI-A-1"; }
-workspace "7" { open-on-output "HDMI-A-1"; }
-workspace "8" { open-on-output "HDMI-A-1"; }
-workspace "9" { open-on-output "HDMI-A-1"; }
-workspace "10" { open-on-output "HDMI-A-1"; }
+workspace "7" { open-on-output "eDP-1"; }
+workspace "8" { open-on-output "eDP-1"; }
+workspace "9" { open-on-output "eDP-1"; }
+workspace "10" { open-on-output "eDP-1"; }
 
 // Note that running niri as a session supports xdg-desktop-autostart,
 
@@ -127,7 +127,7 @@ spawn-at-startup "pomatez"
 spawn-at-startup "/usr/bin/codium" "--enable-features=UseOzonePlatform,WaylandWindowDecorations" "--ozone-platform=wayland"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
 spawn-at-startup "swaync" "-c" "/home/q/.config/swaync/config.jsonc"
-spawn-at-startup "Telegram"
+spawn-at-startup "youtube-music"
 spawn-at-startup "/usr/bin/kdeconnectd"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -177,8 +177,6 @@ gestures {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -190,7 +188,7 @@ window-rule {
 }
 window-rule {
     match app-id="blueman"
-    open-on-workspace "3"
+    open-on-workspace "9"
 }
 window-rule {
     match app-id="firefox"
@@ -199,15 +197,20 @@ window-rule {
 }
 window-rule {
     match app-id="pomatez"
-    open-on-workspace "3"
+    open-on-workspace "9"
 }
 window-rule {
     match app-id="KeePassXC"
-    open-on-workspace "3"
+    open-on-workspace "9"
 }
 window-rule {
     match app-id="codium"
-    open-on-workspace "2"
+    open-on-workspace "7"
+    default-column-width { proportion 1.0; }
+}
+window-rule {
+    match app-id="com.github.th_ch.youtube_music"
+    open-on-workspace "8"
     default-column-width { proportion 1.0; }
 }
 
@@ -248,13 +251,13 @@ binds {
 
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
-    F12  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; } // XF86AudioRaiseVolume
-    F11 allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; } // XF86AudioLowerVolume
-    F10  allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; } // XF86AudioMute  
+    F10  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; } // XF86AudioRaiseVolume
+    F9  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; } // XF86AudioLowerVolume
+    F8  allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; } // XF86AudioMute  
     F1  allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; } // XF86AudioMucMute
 
-    F9  allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; } // XF86MonBrightnessUp
-    F7  allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; } // XF86MonBrightnessDown
+    F12  allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; } // XF86MonBrightnessUp
+    F11  allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; } // XF86MonBrightnessDown
 
     Mod+O repeat=false { toggle-overview; }
 
