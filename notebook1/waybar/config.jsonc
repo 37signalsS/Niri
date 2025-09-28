@@ -2,25 +2,13 @@
   "height": 35,
   "width": 1400,
   "spacing": 10,
-  "margin-top": 15,
+  "margin-top": 35,
   "reload_style_on_change": true,
   "output": "eDP-1",
 
-  "modules-left": ["custom/menu", "sway/workspaces"],
-  "modules-center": ["custom/bt_battery", "battery", "custom/swaync", "custom/cpu", "custom/memory",  "custom/disk"],
+  "modules-left": ["custom/menu"],
+  "modules-center": ["custom/bt_battery", "battery", "custom/cpu", "custom/memory",  "custom/disk"],
   "modules-right": ["tray", "pulseaudio", "custom/niri-layout", "clock", "custom/power"],
-
-  "custom/swaync": {
-    "tooltip": true,
-    "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-      "format": " {}",
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
 
   "clock": {
     "interval": 1,
@@ -48,27 +36,6 @@
     "tooltip": false
   },
 
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "warp-on-scroll": false,
-    "format": "{icon}",
-    "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "urgent": "",
-      "active": "",
-      "default": ""
-    }
-  },
-
   "tray": {
     "icon-size": 20,
     "spacing": 10,
@@ -94,7 +61,7 @@
 
   "custom/power": {
     "format": "⏻ ",
-    "on-click": "~/notebook1/power.sh",
+    "on-click": "~/.config/wofi/power.sh",
     "escape": true,
     "tooltip": false
   },
