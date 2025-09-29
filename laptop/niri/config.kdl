@@ -109,7 +109,7 @@ workspace "10" { open-on-output "eDP-1"; }
 
 // Note that running niri as a session supports xdg-desktop-autostart,
 
-spawn-at-startup "waybar" "-c" "/home/q/notebook1/waybar/config.jsonc"
+spawn-at-startup "waybar" "-c" "/home/q/laptop/waybar/config.jsonc"
 spawn-at-startup "firefox"
 spawn-at-startup "nm-applet"
 spawn-at-startup "gammastep" "-PO" "4000"
