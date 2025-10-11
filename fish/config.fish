@@ -35,10 +35,8 @@ thefuck --alias | source
 
 starship init fish | source
 
+set -gx ATUIN_NOBIND "true"
 atuin init fish | source
-
-# Custom binding for atuin up-arrow in ghostty
-bind up _atuin_bind_up
 
 end
 
