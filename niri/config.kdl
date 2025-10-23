@@ -27,7 +27,7 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.3
         // accel-profile "flat"
         // scroll-method "no-scroll"
     }
@@ -130,6 +130,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "bash" "-c" r#"swaybg -m fill -i "$(find ~/Wallpaper -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | shuf -n 1)""#
 spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "timeout" "1200" "systemctl suspend" "resume" "niri msg action power-on-monitors"
+spawn-at-startup "Telegram"
 
 cursor {
     xcursor-theme "default"
@@ -208,6 +209,11 @@ window-rule {
 window-rule {
     match app-id="com.github.th_ch.youtube_music"
     open-on-workspace "8"
+    default-column-width { proportion 1.0; }
+}
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-on-workspace "2"
     default-column-width { proportion 1.0; }
 }
 

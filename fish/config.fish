@@ -21,11 +21,9 @@ alias vpnoff='sudo systemctl stop tailscaled && sleep 3 && sudo tailscale down'
 
 alias l='eza --tree --icons=always --long --git -a'
 
-alias s='sudo systemctl start powertop-nousb.service && niri -c /home/q/laptop/niri/config.kdl'
+alias s='sudo systemctl start powertop-nousb.service && niri -c /home/q/notebook1/niri/config.kdl'
 
 alias niri-sessions='sudo systemctl start powertop-usb.service && sudo systemctl start bluetooth && niri-session'
-
-alias d="sudo -v; cd (sudo find / -type d 2>/dev/null | fzf --preview 'tree -C {}' --preview-window=right:50%)"
 
 alias codium='/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland $argv'
 
@@ -37,11 +35,13 @@ starship init fish | source
 
 set -gx ATUIN_NOBIND "true"
 atuin init fish | source
+bind up _atuin_bind_up
 
 end
 
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-
 set PATH $PATH /home/q/.local/bin
 set PATH $PATH /home/q/.cargo/bin
+set -gx PATH $PATH /home/q/.lmstudio/bin
+
