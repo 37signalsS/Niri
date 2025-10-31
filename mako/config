@@ -1,0 +1,38 @@
+# ~/.config/mako/config - Catppuccin Mocha Theme 
+
+# Общие настройки
+sort=-time
+max-visible=5
+layer=overlay
+anchor=top-center
+
+# Стили
+font=BlexMonoNerdFont 11
+padding=10
+margin=15
+border-size=2
+border-radius=8
+width=350
+height=100
+default-timeout=5000
+ignore-timeout=false
+
+# Цвета (Catppuccin Mocha)
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#b4befe
+
+# Действия
+on-button-left=dismiss
+on-button-right=dismiss-all
+on-button-middle=invoke-default-action
+
+# Группировка
+[grouped]
+border-color=#cba6f7
+
+# Срочные уведомления
+[urgency=high]
+border-color=#f38ba8
+text-color=#f38ba8
+default-timeout=0
