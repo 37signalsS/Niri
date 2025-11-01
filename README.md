@@ -27,7 +27,7 @@ sudo pacman -S swaybg gammastep swaylock swayidle satty xorg-xwayland wl-clipboa
 
 ### AUR packages 
 ```
-yay -S onlyoffice-bin lens-bin lazydocker pomatez ttf-times-new-roman vscodium-bin ungoogled-chromium-bin archarchive phoenix-arch youtube-music-bin
+yay -S onlyoffice-bin lens-bin lazydocker pomatez ttf-times-new-roman vscodium-bin ungoogled-chromium-bin archarchive phoenix-arch youtube-music-bin tuxedo-control-center-bin tuxedo-drivers-dkms
 ```
 
 ### Additional software
