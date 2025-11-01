@@ -10,7 +10,6 @@ for mac in $devices; do
 
         battery_clean=$(echo "$battery_raw" | grep -oP '\(\K[0-9]+(?=\))')
 
-        # Если не было скобок — пробуем просто взять число
         if [ -z "$battery_clean" ]; then
             battery_clean=$(echo "$battery_raw" | grep -oP '[0-9]+')
         fi
