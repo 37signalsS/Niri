@@ -125,41 +125,41 @@ sudo systemctl enable --now powertop.service
 
 ## Winapps
 
-Winapps позволяет запускать приложения Windows (например, Microsoft Office) из Linux без использования виртуальных машин, интегрируя их в вашу систему.
+Winapps allows you to run Windows applications (e.g., Microsoft Office) from Linux without using virtual machines, integrating them into your system.
 
-### Клонирование репозитория
-Клонируйте репозиторий Winapps:
+### Clone the repository
+Clone the Winapps repository:
 ```bash
 git clone https://github.com/winapps-org/winapps
 ```
 
-### Установка зависимостей
-Установите необходимые пакеты Pacman:
+### Install dependencies
+Install the necessary Pacman packages:
 ```bash
 sudo pacman -Syu --needed -y curl dialog freerdp git iproute2 libnotify openbsd-netcat
 ```
 
-### Запуск службы Docker
-Убедитесь, что служба Docker запущена:
+### Start Docker service
+Ensure the Docker service is running:
 ```bash
 sudo systemctl start docker
 ```
 
-### Редактирование compose.yaml
-Отредактируйте `compose.yaml` в соответствии с вашими предпочтениями. Например, вы можете указать путь к пользовательскому образу Windows (например, `/home/q/Win11_24H2_EnglishInternational_x64.iso:/custom.iso`) и настроить учетные данные пользователя, пароли и ресурсы контейнера.
+### Edit compose.yaml
+Edit `compose.yaml` according to your preferences. For example, you can specify the path to a custom Windows image (e.g., `/home/q/Win11_24H2_EnglishInternational_x64.iso:/custom.iso`) and configure user credentials, passwords, and container resources.
 
-### Запуск контейнера Docker Compose
-Запустите контейнер Docker Compose и получите доступ к нему через веб-браузер:
+### Start Docker Compose container
+Start the Docker Compose container and access it via a web browser:
 ```bash
 docker compose --file compose.yaml up
 ```
-Подключитесь через браузер по ссылке: `http://127.0.0.1:8006/`
+Connect via browser at the link: `http://127.0.0.1:8006/`
 
-### Настройка Windows
-Установите и настройте все необходимые приложения внутри вашей виртуальной среды Windows.
+### Windows setup
+Install and configure all necessary applications within your virtual Windows environment (e.g., perform system cleanup and configuration using https://github.com/flick9000/winscript).
 
-### Конфигурация winapps.conf
-Создайте или отредактируйте файл `~/.config/winapps/winapps.conf` со следующим содержанием, настроив его под свои нужды:
+### Winapps.conf configuration
+Create or edit the `~/.config/winapps/winapps.conf` file with the following content, customizing it to your needs:
 ```
 ##################################
 #   WINAPPS CONFIGURATION FILE   #
@@ -308,16 +308,14 @@ BOOT_TIMEOUT="120"
 HIDEF="off"
 ```
 
-### Копирование compose.yaml и запуск Docker
-Скопируйте `compose.yaml` в директорию `.config/winapps` и запустите контейнер:
+### Copy compose.yaml and start Docker
+Copy `compose.yaml` to the `.config/winapps` directory and start the container:
 ```bash
 cp compose.yaml ~/.config/winapps && docker compose --file ~/.config/winapps/compose.yaml start
 ```
 
-### Интеграция Winapps
-Запустите скрипт для настройки интеграции Winapps в вашу систему и подтвердите все действия, нажимая `Enter`:
+### Winapps Integration
+Run the script to configure Winapps integration into your system and confirm all actions by pressing `Enter`:
 ```bash
 ./setup.sh
 ```
-
-Готово!
