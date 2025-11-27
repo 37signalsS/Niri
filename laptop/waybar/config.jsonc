@@ -2,7 +2,7 @@
   "height": 35,
   "width": 1400,
   "spacing": 10,
-  "margin-top": 35,
+  "margin-top": 15,
   "reload_style_on_change": true,
   "output": "eDP-1",
 
@@ -61,7 +61,7 @@
 
   "custom/power": {
     "format": "⏻ ",
-    "on-click": "~/.config/wofi/power.sh",
+    "on-click": "~/laptop/power.sh",
     "escape": true,
     "tooltip": false
   },

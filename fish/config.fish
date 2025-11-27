@@ -21,7 +21,7 @@ alias vpnoff='sudo systemctl stop tailscaled && sleep 3 && sudo tailscale down'
 
 alias l='eza --tree --icons=always --long --git -a'
 
-alias s='sudo systemctl start powertop-nousb.service && niri -c /home/q/notebook1/niri/config.kdl && sudo systemctl stop bluetooth.service'
+alias s='sudo systemctl start powertop-nousb.service && niri -c /home/q/laptop/niri/config.kdl && sudo systemctl stop bluetooth.service'
 
 alias niri-sessions='sudo systemctl start powertop-usb.service && sudo systemctl start bluetooth && niri-session'
 
