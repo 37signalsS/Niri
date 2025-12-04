@@ -112,7 +112,7 @@ workspace "10" { open-on-output "eDP-1"; }
 spawn-at-startup "waybar" "-c" "/home/q/laptop/waybar/config.jsonc"
 spawn-at-startup "firefox"
 spawn-at-startup "nm-applet"
-spawn-at-startup "gammastep" "-PO" "4000"
+spawn-at-startup "gammastep" "-m" "wayland" "-PO" "4000"
 spawn-at-startup "/usr/bin/codium" "--enable-features=UseOzonePlatform,WaylandWindowDecorations" "--ozone-platform=wayland"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
 spawn-at-startup "/usr/bin/kdeconnectd"
@@ -120,6 +120,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "bash" "-c" r#"swaybg -m fill -i "$(find ~/Wallpaper -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | shuf -n 1)""#
 spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors"
+spawn-at-startup "Telegram"
 
 cursor {
     xcursor-theme "default"
@@ -192,8 +193,13 @@ window-rule {
 //}
 window-rule {
     match app-id="codium"
-    open-on-workspace "2"
+    open-on-workspace "3"
     default-column-width { proportion 1.0; }
+}
+
+window-rule {
+    match app-id="org.telegram.desktop"
+    open-on-workspace "2"
 }
 
 layer-rule {

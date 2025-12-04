@@ -119,7 +119,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "firefox"
 spawn-at-startup "keepassxc"
 spawn-at-startup "nm-applet"
-spawn-at-startup "gammastep" "-PO" "4000"
+spawn-at-startup "gammastep" "-m" "wayland" "-PO" "4000"
 spawn-at-startup "pomatez"
 spawn-at-startup "/usr/bin/codium" "--enable-features=UseOzonePlatform,WaylandWindowDecorations" "--ozone-platform=wayland"
 spawn-at-startup "/usr/bin/wl-paste" "--watch" "/usr/bin/cliphist" "store"
@@ -177,12 +177,6 @@ gestures {
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
-}
-window-rule {
-    match app-id="org.pulseaudio.pavucontrol"
-    open-floating true
-    default-column-width { fixed 600; }
-    default-window-height { fixed 400; }
 }
 window-rule {
     match app-id="blueman"
@@ -243,7 +237,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return { spawn "ghostty"; }
+    Mod+Return { spawn "kitty"; }
     Mod+N { spawn "nemo"; }
     Mod+D { spawn "wofi" "--show" "drun" "--height" "400" "--width" "600" "--hide-scroll"; }
     Mod+C { spawn "bash" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
