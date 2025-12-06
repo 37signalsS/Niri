@@ -27,12 +27,6 @@
     c = "!f() { echo 'Введите сообщение коммита:'; read message; git commit -m \"$message\"; }; f"
     s = status
 
-[safe]
-    directory = /home/q/notes
-    directory = /home/q/Sway
-    directory = /home/q/Bspwm
-    directory = /home/q/landing
-
 [credential]
     helper = cache --timeout=3600
 
