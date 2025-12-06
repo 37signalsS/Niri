@@ -129,8 +129,9 @@ spawn-at-startup "/usr/bin/kdeconnectd"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "bash" "-c" r#"swaybg -m fill -i "$(find ~/Wallpaper -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | shuf -n 1)""#
-spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "timeout" "1200" "systemctl suspend" "resume" "niri msg action power-on-monitors"
+// spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "timeout" "1200" "systemctl suspend" "resume" "niri msg action power-on-monitors"
 spawn-at-startup "Telegram"
+spawn-at-startup "swaync" "-c" "/home/q/.config/swaync/config.jsonc"
 
 cursor {
     xcursor-theme "default"
@@ -178,6 +179,7 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
+
 window-rule {
     match app-id="blueman"
     open-on-workspace "9"
@@ -238,7 +240,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Return { spawn "kitty"; }
-    Mod+N { spawn "nemo"; }
+    Mod+N { spawn "bash" "-c" "nautilus --new-window"; }
     Mod+D { spawn "wofi" "--show" "drun" "--height" "400" "--width" "600" "--hide-scroll"; }
     Mod+C { spawn "bash" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
     Mod+A { spawn "/home/q/.config/waybar/scripts/screenshots.sh"; }
